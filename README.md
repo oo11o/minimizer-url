@@ -12,6 +12,7 @@ command:
     -start:
         docker-compose -f docker-compose.yml up -d --build
         sleep 3s
+        composer install
         php bin/console doctrine:database:create
         php bin/console make:migration
         php bin/console doctrine:migrations:migrate
