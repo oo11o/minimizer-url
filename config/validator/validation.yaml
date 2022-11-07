@@ -1,0 +1,11 @@
+# config/validator/validation.yaml
+App\Entity\Link:
+  properties:
+    url:
+      - Url: ~
+
+    timer:
+      - LessThan:
+          value: 1000
+      - GreaterThan:
+          value: 0

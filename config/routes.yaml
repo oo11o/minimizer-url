@@ -1,30 +1,14 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
 index:
-  path:       /
+  path: /
   controller: App\Controller\IndexController::index
-  methods:    GET|HEAD
+  methods: GET|POST
 
-status:
-  path:       /status
-  controller: App\Controller\IndexController::status
-  methods:    GET|HEAD|POST
+statistic:
+  path: /statistic
+  controller: App\Controller\IndexController::index
+  methods: GET|POST
 
-
-redirect:
-  path:       /{url}
-  controller: App\Controller\IndexController::redirectToOriginal
-  methods:    GET|HEAD
-
-
-
-minimize_store:
-  path:       /
-  controller: App\Controller\IndexController::post
-  methods:    POST
-
-minimize_redirect:
-  path:       /
-  controller: App\Controller\IndexController::post
-  methods:    POST
+transfer:
+  path: /{url}
+  controller: App\Controller\IndexController::transfer
+  methods: GET
