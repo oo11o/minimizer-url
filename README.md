@@ -61,3 +61,6 @@ TABLES
 | updated_at         | TIMESTAMP
 
 ```
+
+![screen](https://user-images.githubusercontent.com/63920713/200398386-fd43f127-9171-44ff-a8be-526bec7ab64f.jpg)
+
