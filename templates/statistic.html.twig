@@ -1,0 +1,85 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-4">
+                {% if error is defined %}
+            <p class="text-danger">{{ error }}<p>
+                    {% endif %}
+                    {{ form_start(form) }}
+                <div class="my-custom-class-for-errors">
+                    {{ form_errors(form) }}
+                </div>
+                <div class="mb-3">
+                    {{ form_row(form.url) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+        {% if result is defined %}
+            <div class="row">
+                <div class="alert alert-success mt-5" role="alert">
+                    <h4 class="alert-heading">Statistic</h4>
+                    <hr>
+                    <strong>Target Link:</strong>
+                    <p class="mb-10 opacity-75  text-break">
+                        {{ result.url }}
+                    </p>
+                    <strong>Minimize Link:</strong>
+                    <p class="mb-10 opacity-75  text-break">
+                        {{ result.short_url }}
+                    </p>
+                    <strong>Created Date:</strong>
+                    <p class="mb-10 opacity-75">
+                        {{ result.created }}
+                    </p>
+
+                    <strong>Expire Date:</strong>
+                    <p class="mb-10 opacity-75">
+                        {{ result.expire }}
+                    </p>
+
+                    <strong>Number of Redirected:</strong>
+                    <p class="mb-10 opacity-75">
+                        {{ result.number_redirect }}
+                    </p>
+
+
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if popular is defined %}
+            <div class="row">
+                <div class="alert alert-success mt-5" role="alert">
+                    <div class="col-12">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Number Redirected</th>
+                                <th scope="col">Url</th>
+                                <th scope="col ">Minimize Url</th>
+                            </tr>
+                            </thead>
+                            {% for link in popular %}
+                                <tr>
+                                    <th scope="row"> {{ loop.index }} </th>
+                                    <td>{{ link.numberRedirect }}</td>
+                                    <td class="text-break"> {{ link.url }}</td>
+                                    <td class="text-break">{{ host }}/{{ link.shortUrl }}</td>
+                                </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
